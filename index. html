@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Security Audit Report Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* പ്രിന്റ് ചെയ്യുമ്പോൾ (PDF ആയി സേവ് ചെയ്യുമ്പോൾ) അനാവശ്യമായ ബട്ടണുകൾ മറയ്ക്കാൻ */
+        @media print {
+            body {
+                background-color: #fff;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Web Security Audit Report</h1>
+    
+    <div class="form-group">
+        <label for="targetUrl">പരിശോധിച്ച വെബ്‌സൈറ്റ് വിലാസം (Target URL):</label>
+        <input type="text" id="targetUrl" placeholder="https://example.com">
+    </div>
+
+    <div class="form-group">
+        <label for="securityLevel">സുരക്ഷാ നിലവാരം (Security Level):</label>
+        <select id="securityLevel">
+            <option value="ഉയർന്നത് (High Risk)">ഉയർന്നത് (High Risk)</option>
+            <option value="ഇടത്തരം (Medium Risk)">ഇടത്തരം (Medium Risk)</option>
+            <option value="സുരക്ഷിതം (Low/Secure)">സുരക്ഷിതം (Low/Secure)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="issuesFound">കണ്ടെത്തിയ പ്രശ്നങ്ങൾ (Identified Issues):</label>
+        <textarea id="issuesFound" placeholder="ഉദാഹരണത്തിന്: SQL Injection, XSS vulnerability, Missing security headers തുടങ്ങിയവ..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="solutions">പരിഹാര മാർഗ്ഗങ്ങൾ (Remediation / Solutions):</label>
+        <textarea id="solutions" placeholder="പ്രശ്നങ്ങൾ പരിഹരിക്കാനുള്ള കോഡ് മാറ്റങ്ങൾ അല്ലെങ്കിൽ നിർദ്ദേശങ്ങൾ ഇവിടെ എഴുതുക..."></textarea>
+    </div>
+
+    <div class="btn-container no-print">
+        <button onclick="window.print()">റപ്പോർട്ട് PDF ആയി ഡൗൺലോഡ് ചെയ്യുക (Save as PDF)</button>
+    </div>
+</div>
+
+</body>
+</html>
